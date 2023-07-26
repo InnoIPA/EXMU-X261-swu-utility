@@ -1,0 +1,8 @@
+/.venv
+/dist
+/build
+rpm/aarch64/
+
+*.pyc
+*.egg-info/
+__pycache__/

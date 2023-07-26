@@ -1,0 +1,15 @@
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - ./mosquitto-config:/mosquitto/config
+  file-server:
+    image: svenstaro/miniserve:0.23.2
+    entrypoint: /app/miniserve -c Squirrel -u -- /tmp
+    ports:
+      - 8080:8080
+    volumes:
+      - ./miniserve-data:/tmp
