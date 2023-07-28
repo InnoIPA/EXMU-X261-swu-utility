@@ -4,7 +4,7 @@ This repo provides an OTA solution for EXMU-X261. To perform OTA
 updates, you need
 
 1. an EXMU-X261 running `swu-client` service. (Use `sudo systemctl status swu-client` to verify that `swu-client.service` is active.)
-2. mqtt broker and file server (Go to  [docker directory](https://github.com/InnoIPA/swu-utility/tree/main/docker) for more information)
+2. mqtt broker and file server (Go to  [docker directory](https://github.com/InnoIPA/EXMU-X261-swu-utility/tree/main/docker) for more information)
 3. a development machine with `swu-pusher` installed (See below)
 
 # OTA User Guide
@@ -15,10 +15,10 @@ updates, you need
 To install `swu-pusher` on your development machine, execute
 
 ```
-git clone https://github.com/InnoIPA/swu-utility
+git clone https://github.com/InnoIPA/EXMU-X261-swu-utility
 ```
 ```
-cd swu-utility
+cd EXMU-X261-swu-utility
 pip3 install ./
 ```
 
@@ -34,7 +34,7 @@ which swu-pusher
 
 # Configuration file
 
-By default, `swu-client` and `swu-pusher` will connect to MQTT broker at `172.16.92.106`. You can change the setting by specifying a configuration file using `-f` option. We provide some [examples](https://github.com/InnoIPA/swu-utility/tree/main/src/swu_utility/config) of configuration file in the repo.
+By default, `swu-client` and `swu-pusher` will connect to MQTT broker at `172.16.92.106`. You can change the setting by specifying a configuration file using `-f` option. We provide some [examples](https://github.com/InnoIPA/EXMU-X261-swu-utility/tree/main/src/swu_utility/config) of configuration file in the repo.
 
 - default setting
     ```
