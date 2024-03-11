@@ -38,7 +38,7 @@ function rpm_handler(image)
     swupdate.progress_update(30)
 
     local image = swupdate.tmpdir() .. image.filename
-    local _,_,code = os.execute("dnf install -y " .. image)
+    local _,_,code = os.execute("rpm -ivh --force " .. image)
 
     swupdate.progress_update(100)
     return code
