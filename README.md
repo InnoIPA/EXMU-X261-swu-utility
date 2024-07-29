@@ -110,3 +110,6 @@ The time spent on downloads is ignored.
 
 - Why `miniserve` using port 8092?   
   By reference [this page](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=&page=110) and chose an unassigned port.
+
+- How to build `swupdate` without signed option on ubuntu?   
+  Follow [this page](docs/swupdate_on_x86.md).
