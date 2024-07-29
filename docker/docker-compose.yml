@@ -10,6 +10,8 @@ services:
     image: svenstaro/miniserve:0.23.2
     entrypoint: /app/miniserve -c Squirrel -u -- /tmp
     ports:
-      - 8080:8080
+      - 8092:8080
     volumes:
       - ./miniserve-data:/tmp
+    environment:
+      - OVERWRITE_FILES=TRUE
