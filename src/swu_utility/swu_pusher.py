@@ -75,7 +75,7 @@ def main():
         "-d", "--dna", help="DNA of target device", dest="dna", default="dna"
     )
     parser.add_argument(
-        "-m", "--mode", choices=["AB", "QSPI", "RPM"], dest="mode", default="AB"
+        "-m", "--mode", choices=["AB", "QSPI", "RPM", "DEB"], dest="mode", default="AB"
     )
     parser.add_argument("-f", "--file", help="path to config file", dest="config")
     args = parser.parse_args()

@@ -65,6 +65,12 @@ def get_dna():
     return dna
 
 
+def get_mac():
+    macs = subprocess.Popen('cat /sys/class/net/e*/address', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    mac,err = macs.communicate()
+    return mac.rstrip()[0:17].decode('utf-8')
+
+
 def get_swupdate_args(url, mode):
     # https://sbabic.github.io/swupdate/2022.05/swupdate.html#command-line-parameters
     def selection(e):
@@ -206,7 +212,15 @@ def main():
         broker_host = opt["broker"]["host"]
         broker_port = opt["broker"].getint("port")
 
-    dna = get_dna()
+    platfrom = subprocess.check_output(["uname", "-p"]).rstrip()
+    if platfrom == b'aarch64':
+        dna = get_dna()
+    elif platfrom == b'x86_64':
+        dna = get_mac()
+    else:
+        print(f"Invalid platform: {platfrom}")
+        exit()
+
     print(f"Device DNA: {dna}")
 
     # application data
