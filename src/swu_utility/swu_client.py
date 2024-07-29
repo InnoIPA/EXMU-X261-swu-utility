@@ -24,6 +24,7 @@ import swu_utility.config as config
 def on_connect(client, userdata, flags, rc):
     print(f"MQTT connection returned result: {connack_string(rc)}")
     client.subscribe(userdata.package_topic)
+    client.subscribe(userdata.dna_get_topic)
 
 
 def on_message(client, userdata, message):
@@ -34,6 +35,8 @@ def on_message(client, userdata, message):
 
         with userdata.cv:
             userdata.cv.notify()
+    elif message.topic == userdata.dna_get_topic:
+        client.publish(userdata.dna_post_topic, payload=userdata.dna)
     else:
         print(
             (
@@ -140,6 +143,8 @@ class Data:
         self.is_updating = False
 
         self.dna = dna
+        self.dna_get_topic = f"v0/EXMU-X261/ota/dna/get"
+        self.dna_post_topic = f"v0/EXMU-X261/ota/dna/post"
         self.package_topic = f"v0/EXMU-X261/ota/package/{self.dna}"
         self.telemetry_topic = f"v0/EXMU-X261/ota/telemetry/{self.dna}"
 
