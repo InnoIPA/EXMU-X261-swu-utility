@@ -1,5 +1,5 @@
 [Unit]
-Description=OTA service for EXMU-X261
+Description=An OTA service based on swupdate by Innodisk.
 After=network.target
 
 [Service]

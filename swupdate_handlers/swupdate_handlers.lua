@@ -45,3 +45,20 @@ function rpm_handler(image)
 end
 
 swupdate.register_handler("rpm", rpm_handler, swupdate.HANDLER_MASK.IMAGE_HANDLER)
+
+--- Lua Handler.
+--
+--- @param  image  img_type  Lua equivalent of `struct img_type`
+--- @return number           # 0 on success, 1 on error
+function deb_handler(image)
+    swupdate.progress_update(1)
+    swupdate.progress_update(30)
+
+    local image = swupdate.tmpdir() .. image.filename
+    local _,_,code = os.execute("apt install -y " .. image)
+
+    swupdate.progress_update(100)
+    return code
+end
+
+swupdate.register_handler("deb", deb_handler, swupdate.HANDLER_MASK.IMAGE_HANDLER)

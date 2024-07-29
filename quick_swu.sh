@@ -15,4 +15,4 @@ then
 fi
 
 ### Update SWU to specific device.
-python3 src/swu_utility/swu_pusher.py -d "${DNA}" -m RPM -f src/swu_utility/config/config.ini "${SWU_FILE}"
+python3 src/swu_utility/swu_pusher.py -d "${DNA}" -f src/swu_utility/config/config.ini "${SWU_FILE}"
