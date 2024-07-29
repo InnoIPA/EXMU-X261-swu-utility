@@ -7,7 +7,7 @@ from setuptools import setup
 
 setup(
     name="swu-utility",
-    version="0.0.2",
+    version="0.0.3",
     description="OTA toolings around EXMU-X261",
     install_requires=["paho-mqtt==1.5.1"],
     package_dir={"": "src"},
