@@ -22,6 +22,9 @@ sudo apt install -y libjson-c-dev liblua5.3-dev libubootenv-dev libconfig-dev li
     git checkout 0afeee8a2b0b2f2f7abd00deb93124804850e06d 
     ```
 2. Copy the customised build config `.config` from [here](swu.config).
+   ```bash
+   cp <this-repo>/swu.config swupdate/.config
+   ```
 3. Build & install.
     ```bash
     make

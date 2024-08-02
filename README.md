@@ -9,6 +9,7 @@
   - [`swu-pusher`](#swu-pusher)
 - [Performance](#performance)
 - [FAQ](#faq)
+- [To-do](#to-do)
 
 # Overview
 This repo provides an OTA solution for EXMU-X261. To perform OTA updates, you need :
@@ -105,11 +106,17 @@ The time spent on downloads is ignored.
   Followiing process will add an alias mdns `swu-server.local` to the device within mqtt broker and file server.
   ```bash
   cd mdns
-  sudo ./setup_swu_mdns.sh
+  sudo ./run.sh
+  # or
+  sudo ./install.sh
   ```
 
 - Why `miniserve` using port 8092?   
   By reference [this page](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=&page=110) and chose an unassigned port.
 
-- How to build `swupdate` without signed option on ubuntu?   
+- How to build swupdate without signed option on ubuntu?   
   Follow [this page](docs/swupdate_on_x86.md).
+
+# To-do
+- [ ] avahi-alias getting ip is not stable under complex network environment. Maybe using VLAN to refine the flow?
+- [ ] Stressing test mutilple device at the same time to know the weak point. (Maybe on the bandwidth ?) 
