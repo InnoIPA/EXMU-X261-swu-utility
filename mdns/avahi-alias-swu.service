@@ -1,0 +1,10 @@
+[Unit]
+Description=Publish swu-server.local as alias for %H.local via mdns
+After=avahi-daemon.service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c '/usr/local/bin/avahi-alias swu-server.local'
+
+[Install]
+WantedBy=multi-user.target
